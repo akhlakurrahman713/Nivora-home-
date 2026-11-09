@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nivora Home – Make Everyday Living Better</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4efe4;--card:#fffdf8;--sand:#e3d8c0;--olive:#4f5d2f;--olive2:#3d4924;--sage:#b8c595;--ink:#25241e;--mute:#6f6a5c;--line:#e0d6bf;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1a16;--card:#25231d;--sand:#3a352a;--olive:#a9bd76;--olive2:#c0d38e;--sage:#4a5530;--ink:#f2eee3;--mute:#aaa492;--line:#37332a;--on:#1b1a16}}
+:root[data-theme="dark"]{--bg:#1b1a16;--card:#25231d;--sand:#3a352a;--olive:#a9bd76;--olive2:#c0d38e;--sage:#4a5530;--ink:#f2eee3;--mute:#aaa492;--line:#37332a;--on:#1b1a16}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,"Noto Sans Bengali",system-ui,sans-serif}
+h1,h2,h3{font-family:Poppins,"Noto Sans Bengali",sans-serif;margin:0;line-height:1.15;letter-spacing:-.02em}
+button{font:inherit;cursor:pointer;color:inherit}a{color:inherit}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+.w{max-width:1160px;margin:auto;padding:0 22px}
+.ann{background:var(--olive);color:var(--on);text-align:center;font-size:13px;padding:7px 12px}
+header{position:sticky;top:0;z-index:6;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:18px;height:66px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;font:600 17px Poppins;letter-spacing:.06em}
+.logo svg{width:30px;height:30px;stroke:var(--olive)}
+nav{display:flex;gap:22px;margin-left:24px;font-size:14px;color:var(--mute)}nav a{text-decoration:none}nav a:hover{color:var(--ink)}
+.sp{flex:1}.lang{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:600;font-size:13px}.lang:hover{border-color:var(--olive)}
+.search{position:relative;width:240px}
+.search input{width:100%;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-size:14px}
+.cartbtn{display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px}
+.cartbtn b{background:var(--olive);color:var(--on);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:56px 0 40px}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:700}
+.hero p{font-size:18px;color:var(--mute);max-width:44ch;margin:22px 0 30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{border:0;background:var(--olive);color:var(--on);padding:14px 26px;border-radius:12px;font-weight:600;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--olive2)}
+.btn.o{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.facts{display:flex;gap:28px;margin-top:34px;font-size:14px;color:var(--mute);flex-wrap:wrap}
+.facts b{display:block;color:var(--ink);font:600 20px Poppins}
+.shelf{width:100%;height:auto;border-radius:28px}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:12px 0 8px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 8px 14px;display:grid;justify-items:center;gap:8px;font-size:13px;font-weight:500;text-align:center}
+.cat[aria-pressed="true"]{background:var(--olive);color:var(--on);border-color:var(--olive)}
+.cat svg{width:34px;height:34px}
+.sec{display:flex;justify-content:space-between;align-items:end;margin:44px 0 20px;gap:16px;flex-wrap:wrap}
+.sec h2{font-size:clamp(26px,3.4vw,36px);font-weight:600}.sec span{color:var(--mute);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--olive)}
+.tile{position:relative;aspect-ratio:1/.82;display:grid;place-items:center;background:var(--t)}
+.tile svg{width:46%;height:46%;color:var(--olive2);opacity:.9}
+.badge{position:absolute;top:12px;left:12px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px}
+.body{padding:16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.body small{color:var(--mute);font-size:12px}.body h3{font:500 16px Inter,"Noto Sans Bengali",sans-serif;letter-spacing:0}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px}
+.pr{font:600 20px Poppins}.pr s{font:400 13px Inter;color:var(--mute);margin-left:6px}
+.add{width:42px;height:42px;border-radius:12px;border:0;background:var(--olive);color:var(--on);font-size:22px;line-height:1}
+.add:hover{background:var(--olive2)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;background:var(--olive);color:var(--on);border-radius:28px;padding:40px}
+.how h3{font-size:20px;margin-bottom:8px}.how p{margin:0;opacity:.85;font-size:15px}
+.rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.rev figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}
+.rev blockquote{margin:0 0 14px;font-size:16px}.rev figcaption{color:var(--mute);font-size:13px}
+.news{margin:48px 0;background:var(--sand);border-radius:28px;padding:40px;display:flex;gap:24px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.news h2{font-size:28px}.news p{margin:6px 0 0;color:var(--mute)}
+.news form{display:flex;gap:8px;flex-wrap:wrap}.news input{padding:13px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;min-width:220px}
+footer{border-top:1px solid var(--line);padding:32px 0 40px;color:var(--mute);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:5;background:#25a35a;color:#fff;text-decoration:none;padding:12px 18px;border-radius:999px;font-weight:600;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9;display:none}.scrim.on{display:block}
+.drawer{position:fixed;inset:0 0 0 auto;width:min(420px,100%);background:var(--card);z-index:10;transform:translateX(105%);transition:transform .28s;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}.dh h3{font-size:20px}
+.dh button{background:none;border:0;font-size:28px;line-height:1}
+.db{flex:1;overflow:auto;padding:8px 22px}
+.li{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.li i{width:48px;height:48px;border-radius:12px;background:var(--t);display:grid;place-items:center;flex:none}.li i svg{width:26px;height:26px;color:var(--olive2)}
+.li .n{flex:1;font-size:14px;font-weight:500}.li small{display:block;color:var(--mute);font-weight:400}
+.q{display:flex;align-items:center;gap:8px}.q button{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.df{padding:18px 22px;border-top:1px solid var(--line);display:grid;gap:10px}
+.df input,.df textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:15px}
+.tot{display:flex;justify-content:space-between;font-weight:600;font-size:17px}.df small{color:var(--mute)}
+.ok{padding:48px 8px;text-align:center}.ok h3{font-size:24px;margin-bottom:10px}.ok p{color:var(--mute)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:14px;z-index:20;transition:transform .25s}.toast.on{transform:translate(-50%,0)}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:28px}nav,.search{display:none}.cats{grid-template-columns:repeat(3,1fr)}.how{grid-template-columns:1fr;padding:28px}.news{padding:28px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i0" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="32" cy="16" rx="7" ry="10" transform="rotate(40 32 16)"/><path d="M27 21 9 39"/></symbol>
+<symbol id="i1" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="15" width="22" height="26" rx="5"/><rect x="16" y="8" width="16" height="7" rx="2"/><path d="M13 26h22"/></symbol>
+<symbol id="i2" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="10" width="34" height="28" rx="4"/><path d="M7 24h34M24 10v28"/></symbol>
+<symbol id="i3" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21h14v19a2 2 0 0 1-2 2H19a2 2 0 0 1-2-2zM21 21v-6h9l5-5M21 15h-5"/></symbol>
+<symbol id="i4" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c9 11 12 17 12 23a12 12 0 0 1-24 0c0-6 3-12 12-23z"/><path d="M18 30a6 6 0 0 0 5 5"/></symbol>
+<symbol id="i5" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20h36l-4 21H10zM15 20l7-11M33 20l-7-11"/></symbol>
+</defs></svg>
+
+<div class="ann">সারা বাংলাদেশে ডেলিভারি · ক্যাশ অন ডেলিভারি · bKash / Nagad</div>
+<header><div class="w bar">
+<a class="logo" href="#top" aria-label="Nivora Home"><svg viewBox="0 0 32 32" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M4 15 16 4l12 11v13H4z"/><path d="M16 23c-3-1-4-4-3-7 3 0 5 2 3 7zm0 0c3-1 4-4 3-7-3 0-5 2-3 7z"/></svg>NIVORA HOME</a>
+<nav><a href="#shop">পণ্য</a><a href="#best">সেরা বিক্রি</a><a href="#why">কেন আমরা</a><a href="#reviews">রিভিউ</a></nav>
+<div class="sp"></div>
+<div class="search"><input id="q" type="search" placeholder="পণ্য খুঁজুন" aria-label="পণ্য খুঁজুন"></div>
+<button class="lang" id="lang" aria-label="Switch language / ভাষা বদলান">EN</button>
+<button class="cartbtn" id="openCart">কার্ট <b id="cnt">0</b></button>
+</div></header>
+
+<main class="w" id="top">
+<section class="hero">
+<div>
+<h1>Make Everyday Living Better.</h1>
+<p>রান্নাঘর, স্টোরেজ আর ঘর গোছানোর দরকারি পণ্য, সাধারণ ক্রেতার নাগালের দামে।</p>
+<div class="btns"><a class="btn" href="#shop">কেনাকাটা শুরু করুন</a><a class="btn o" href="#why">কেন Nivora Home</a></div>
+<div class="facts"><div><b>৳৪৪৯+</b>থেকে শুরু</div><div><b>৬টি</b>ক্যাটাগরি</div><div><b>৬৪ জেলা</b>ডেলিভারি</div></div>
+</div>
+<svg class="shelf" viewBox="0 0 480 440" role="img" aria-label="সাজানো কিচেন শেলফ">
+<rect width="480" height="440" rx="28" fill="var(--sand)"/>
+<rect x="36" y="150" width="408" height="10" rx="5" fill="var(--olive)"/><rect x="36" y="290" width="408" height="10" rx="5" fill="var(--olive)"/><rect x="36" y="420" width="408" height="10" rx="5" fill="var(--olive)" opacity=".0"/>
+<g stroke="var(--olive)" stroke-width="3" fill="none"><path d="M60 160V40M420 160V40" opacity="0"/></g>
+<rect x="64" y="86" width="60" height="64" rx="10" fill="var(--card)"/><rect x="70" y="72" width="48" height="16" rx="5" fill="var(--olive)"/><rect x="74" y="104" width="40" height="22" rx="4" fill="var(--sage)"/>
+<rect x="136" y="70" width="60" height="80" rx="10" fill="var(--card)"/><rect x="142" y="56" width="48" height="16" rx="5" fill="var(--olive)"/><rect x="146" y="92" width="40" height="30" rx="4" fill="var(--sage)"/>
+<rect x="208" y="100" width="60" height="50" rx="10" fill="var(--card)"/><rect x="214" y="88" width="48" height="14" rx="5" fill="var(--olive)"/>
+<path d="M330 150h60l-8-44h-44z" fill="var(--olive)"/><path d="M360 106c-14-24-34-30-44-26 8 20 24 30 44 26zM360 106c10-30 30-40 46-36-4 24-22 38-46 36z" fill="var(--sage)"/><path d="M360 106V60" stroke="var(--olive2)" stroke-width="3"/>
+<rect x="64" y="226" width="110" height="64" rx="10" fill="var(--card)"/><rect x="70" y="214" width="98" height="14" rx="5" fill="var(--olive)"/><path d="M80 246h78M80 262h50" stroke="var(--sage)" stroke-width="5" stroke-linecap="round"/>
+<path d="M200 290l10-54h86l10 54z" fill="var(--card)"/><path d="M212 236h82" stroke="var(--olive)" stroke-width="5"/><path d="M220 256h66M224 272h58" stroke="var(--sage)" stroke-width="4"/>
+<rect x="340" y="234" width="48" height="56" rx="8" fill="var(--olive)"/><rect x="354" y="212" width="20" height="24" rx="4" fill="var(--olive2)"/><rect x="356" y="262" width="16" height="12" rx="3" fill="var(--sage)"/>
+<path d="M60 380c0-24 22-40 70-40s70 16 70 40z" fill="var(--card)"/><path d="M90 340c10-14 40-14 50 0" stroke="var(--sage)" stroke-width="5" fill="none"/>
+<rect x="240" y="330" width="140" height="70" rx="14" fill="var(--card)"/><path d="M240 356h140M310 330v70" stroke="var(--sage)" stroke-width="4"/>
+</svg>
+</section>
+
+<div class="cats" id="cats" role="group" aria-label="ক্যাটাগরি"></div>
+
+<div class="sec" id="best"><h2>সেরা বিক্রি</h2><span>প্রথম মাসের জনপ্রিয় ৮টি পণ্য</span></div>
+<div class="grid" id="bestGrid"></div>
+
+<div class="sec" id="shop"><h2>সব পণ্য</h2><span id="catName"></span></div>
+<div class="grid" id="grid"></div>
+
+<div class="sec" id="why"><h2>কেন Nivora Home</h2></div>
+<section class="how">
+<div><h3>দরকারি পণ্য</h3><p>প্রতিদিনের কাজে লাগে, ভিডিওতে দেখে বুঝে কিনতে পারবেন।</p></div>
+<div><h3>সাশ্রয়ী দাম</h3><p>বেশিরভাগ পণ্য ৳৫০০–৳৮০০ এর মধ্যে।</p></div>
+<div><h3>এক জায়গায় সব</h3><p>কিচেন থেকে বাথরুম, একটি অর্ডারেই পুরো ঘরের প্রয়োজন।</p></div>
+</section>
+
+<div class="sec" id="reviews"><h2>ক্রেতারা কী বলছেন</h2><span>নমুনা রিভিউ (ডেমো)</span></div>
+<div class="rev">
+<figure><blockquote>চপারটা দিয়ে পেঁয়াজ কাটতে এখন এক মিনিটও লাগে না। ডেলিভারিও দ্রুত ছিল।</blockquote><figcaption>সাবরিনা, সিলেট</figcaption></figure>
+<figure><blockquote>মসলার জার সেটে রান্নাঘরটা অনেক গোছানো লাগছে। প্যাকেজিং খুব ভালো ছিল।</blockquote><figcaption>রুবিনা, ঢাকা</figcaption></figure>
+<figure><blockquote>ফ্রিজ অর্গানাইজারে জায়গা বেঁচেছে, দামও ঠিক ছিল।</blockquote><figcaption>তানভীর, চট্টগ্রাম</figcaption></figure>
+</div>
+
+<section class="news"><div><h2>অফারের খবর পান</h2><p>নতুন পণ্য আর বিশেষ ছাড়ের তথ্য সবার আগে।</p></div>
+<form id="nf"><input type="email" placeholder="আপনার ইমেইল" aria-label="ইমেইল" required><button class="btn" type="submit">সাবস্ক্রাইব</button></form></section>
+<footer><div><strong>Nivora Home</strong><br>Make Everyday Living Better.</div><div>ডেলিভারি ও রিটার্ন পলিসি · প্রাইভেসি · যোগাযোগ<br>এটি একটি ডেমো, দাম ও রিভিউ নমুনা।</div></footer>
+</main>
+
+<a class="wa" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp-এ কথা বলুন</a>
+<div class="toast" id="toast" role="status"></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="শপিং কার্ট">
+<div class="dh"><h3>আপনার কার্ট</h3><button id="closeCart" aria-label="কার্ট বন্ধ করুন">×</button></div>
+<div class="db" id="db"></div>
+<form class="df" id="form" hidden>
+<div class="tot"><span>মোট</span><span id="tot"></span></div><small>ডেলিভারি চার্জ আলাদা, পেমেন্ট ক্যাশ অন ডেলিভারি।</small>
+<input name="name" placeholder="আপনার নাম" required autocomplete="name">
+<input name="phone" type="tel" placeholder="মোবাইল নম্বর (01XXXXXXXXX)" pattern="01[0-9]{9}" title="১১ সংখ্যার নম্বর" required autocomplete="tel">
+<textarea name="addr" rows="2" placeholder="সম্পূর্ণ ঠিকানা" required autocomplete="street-address"></textarea>
+<button class="btn" type="submit">অর্ডার নিশ্চিত করুন</button>
+</form>
+</aside>
+
+<script>
+const C=["কিচেন টুলস","কিচেন স্টোরেজ","হোম অর্গানাইজেশন","ক্লিনিং","বাথরুম","হোম এসেনশিয়ালস"];
+const T=["#e6ddc6","#dfe5c9","#ebdfca","#d9e3cf","#e4e0cf","#eadcc3"];
+const P=[["Vegetable Chopper",0,599,1],["Silicone Spatula Set",0,499,1],["Cutting Board Set",0,549],["Airtight Container Set",1,649,1],["Spice Jar Set",1,699,1],["Oil Dispenser Set",1,499],["Sink Organizer Rack",2,599,1],["Fridge Organizer",2,449,1],["Shoe Organizer",2,699],["Microfiber Cleaning Set",3,499],["Cleaning Brush Set",3,449],["Bathroom Shelf",4,599,1],["Soap Dispenser Set",4,499],["Laundry Basket",5,699,1],["Table Mat Set",5,499],["Multi-purpose Storage Basket",5,549]].map((p,i)=>({id:i,name:p[0],c:p[1],price:p[2],best:!!p[3]}));
+let cat=-1,term="",cart={};
+let L="bn",done=null;
+const $=s=>document.getElementById(s),bn=n=>"৳"+n.toLocaleString(L==="en"?"en-US":"bn-BD");
+const EN={"সারা বাংলাদেশে ডেলিভারি · ক্যাশ অন ডেলিভারি · bKash / Nagad":"Nationwide delivery · Cash on delivery · bKash / Nagad","পণ্য":"Shop","সেরা বিক্রি":"Best sellers","কেন আমরা":"Why us","রিভিউ":"Reviews","পণ্য খুঁজুন":"Search products","কার্ট":"Cart","রান্নাঘর, স্টোরেজ আর ঘর গোছানোর দরকারি পণ্য, সাধারণ ক্রেতার নাগালের দামে।":"Useful kitchen, storage and home-organising products, at prices everyday shoppers can afford.","কেনাকাটা শুরু করুন":"Start shopping","কেন Nivora Home":"Why Nivora Home","৳৪৪৯+":"৳449+","থেকে শুরু":"starting price","৬টি":"6","ক্যাটাগরি":"categories","৬৪ জেলা":"64 districts","ডেলিভারি":"delivery","সাজানো কিচেন শেলফ":"A neatly organised kitchen shelf","প্রথম মাসের জনপ্রিয় ৮টি পণ্য":"Our 8 most popular products","সব পণ্য":"All products","দরকারি পণ্য":"Useful products","প্রতিদিনের কাজে লাগে, ভিডিওতে দেখে বুঝে কিনতে পারবেন।":"Made for daily use, so you can see how it works before you buy.","সাশ্রয়ী দাম":"Affordable prices","বেশিরভাগ পণ্য ৳৫০০–৳৮০০ এর মধ্যে।":"Most products are priced between ৳500 and ৳800.","এক জায়গায় সব":"Everything in one place","কিচেন থেকে বাথরুম, একটি অর্ডারেই পুরো ঘরের প্রয়োজন।":"From kitchen to bathroom, cover your whole home in one order.","ক্রেতারা কী বলছেন":"What customers say","নমুনা রিভিউ (ডেমো)":"Sample reviews (demo)","চপারটা দিয়ে পেঁয়াজ কাটতে এখন এক মিনিটও লাগে না। ডেলিভারিও দ্রুত ছিল।":"Chopping onions with this chopper takes under a minute now. Delivery was fast too.","মসলার জার সেটে রান্নাঘরটা অনেক গোছানো লাগছে। প্যাকেজিং খুব ভালো ছিল।":"The spice jar set makes my kitchen look so much tidier. The packaging was great.","ফ্রিজ অর্গানাইজারে জায়গা বেঁচেছে, দামও ঠিক ছিল।":"The fridge organizer saved me space, and the price was fair.","সাবরিনা, সিলেট":"Sabrina, Sylhet","রুবিনা, ঢাকা":"Rubina, Dhaka","তানভীর, চট্টগ্রাম":"Tanvir, Chattogram","অফারের খবর পান":"Get offer updates","নতুন পণ্য আর বিশেষ ছাড়ের তথ্য সবার আগে।":"Be first to hear about new products and special discounts.","আপনার ইমেইল":"Your email","ইমেইল":"Email","সাবস্ক্রাইব":"Subscribe","ডেলিভারি ও রিটার্ন পলিসি · প্রাইভেসি · যোগাযোগ":"Delivery & return policy · Privacy · Contact","এটি একটি ডেমো, দাম ও রিভিউ নমুনা।":"This is a demo; prices and reviews are samples.","WhatsApp-এ কথা বলুন":"Chat on WhatsApp","শপিং কার্ট":"Shopping cart","আপনার কার্ট":"Your cart","কার্ট বন্ধ করুন":"Close cart","মোট":"Total","ডেলিভারি চার্জ আলাদা, পেমেন্ট ক্যাশ অন ডেলিভারি।":"Delivery charge is extra. Payment is cash on delivery.","আপনার নাম":"Your name","মোবাইল নম্বর (01XXXXXXXXX)":"Mobile number (01XXXXXXXXX)","১১ সংখ্যার নম্বর":"11-digit number","সম্পূর্ণ ঠিকানা":"Full address","অর্ডার নিশ্চিত করুন":"Confirm order","কার্ট খালি। পছন্দের পণ্য যোগ করুন।":"Your cart is empty. Add a product you like.","কোনো পণ্য পাওয়া যায়নি। অন্য নামে খুঁজুন।":"No products found. Try another name.","কিচেন টুলস":"Kitchen Tools","কিচেন স্টোরেজ":"Kitchen Storage","হোম অর্গানাইজেশন":"Home Organization","ক্লিনিং":"Cleaning Essentials","বাথরুম":"Bathroom Essentials","হোম এসেনশিয়ালস":"Home Essentials","কমান":"Decrease","বাড়ান":"Increase","কার্টে যোগ করুন":"Add to cart"};
+const O=new WeakMap();
+function tr(){const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;
+while(n=w.nextNode()){if(n.parentNode.closest("script"))continue;if(!O.has(n))O.set(n,n.nodeValue);const o=O.get(n),k=o.trim(),v=L==="en"&&EN[k]?o.replace(k,EN[k]):o;if(n.nodeValue!==v)n.nodeValue=v}
+document.querySelectorAll("[placeholder],[aria-label],[title]").forEach(e=>["placeholder","aria-label","title"].forEach(a=>{if(!e.hasAttribute(a))return;const d="data-o-"+a;if(!e.hasAttribute(d))e.setAttribute(d,e.getAttribute(a));const o=e.getAttribute(d),v=L==="en"&&EN[o]||o;if(e.getAttribute(a)!==v)e.setAttribute(a,v)}))}
+const okH=()=>L==="en"?`<div class="ok"><h3>Thank you, ${done}!</h3><p>Your order has been received. We will call you to confirm.<br><small>(Demo, no real order was placed)</small></p></div>`:`<div class="ok"><h3>ধন্যবাদ, ${done}!</h3><p>আপনার অর্ডার গ্রহণ করা হয়েছে। নিশ্চিত করতে আমরা ফোন করব।<br><small>(ডেমো, কোনো আসল অর্ডার হয়নি)</small></p></div>`;
+const ic=c=>`<svg><use href="#i${c}"/></svg>`;
+const card=p=>`<article class="card"><div class="tile" style="--t:${T[p.c]}">${p.best?'<span class="badge">সেরা বিক্রি</span>':''}${ic(p.c)}</div><div class="body"><small>${C[p.c]}</small><h3>${p.name}</h3><div class="row"><div class="pr">${bn(p.price)}<s>${bn(Math.round(p.price*1.2/10)*10)}</s></div><button class="add" data-id="${p.id}" aria-label="কার্টে যোগ করুন">+</button></div></div></article>`;
+function cats(){$("cats").innerHTML=C.map((c,i)=>`<button class="cat" data-c="${i}" aria-pressed="${cat===i}">${ic(i)}${c}</button>`).join("")}
+function grid(){const l=P.filter(p=>(cat<0||p.c===cat)&&p.name.toLowerCase().includes(term));$("catName").textContent=cat<0?"":C[cat];$("grid").innerHTML=l.length?l.map(card).join(""):"<p>কোনো পণ্য পাওয়া যায়নি। অন্য নামে খুঁজুন।</p>"}
+function cartR(){const k=Object.keys(cart),n=k.reduce((s,i)=>s+cart[i],0),t=k.reduce((s,i)=>s+cart[i]*P[i].price,0);
+$("cnt").textContent=n;$("tot").textContent=bn(t);$("form").hidden=!n||!!done;
+$("db").innerHTML=done?okH():n?k.map(i=>`<div class="li"><i style="--t:${T[P[i].c]}">${ic(P[i].c)}</i><div class="n">${P[i].name}<small>${bn(P[i].price)}</small></div><div class="q"><button data-d="-1" data-id="${i}" aria-label="কমান">−</button>${cart[i]}<button data-d="1" data-id="${i}" aria-label="বাড়ান">+</button></div></div>`).join(""):'<p class="ok">কার্ট খালি। পছন্দের পণ্য যোগ করুন।</p>'}
+function tip(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tip.x);tip.x=setTimeout(()=>t.classList.remove("on"),1500)}
+function dr(o){$("drawer").classList.toggle("open",o);$("scrim").classList.toggle("on",o)}
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+if(b.classList.contains("cat")){const i=+b.dataset.c;cat=cat===i?-1:i;cats();grid();$("shop").scrollIntoView()}
+else if(b.classList.contains("add")){const i=b.dataset.id;cart[i]=(cart[i]||0)+1;done=null;cartR();tip(L==="en"?P[i].name+" added to cart":P[i].name+" কার্টে যোগ হয়েছে")}
+else if(b.dataset.d){const i=b.dataset.id;cart[i]+=+b.dataset.d;if(cart[i]<1)delete cart[i];cartR()}
+else if(b.id==="openCart")dr(true);else if(b.id==="closeCart")dr(false)});
+$("scrim").onclick=()=>dr(false);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")dr(false)});
+$("q").oninput=e=>{term=e.target.value.trim().toLowerCase();grid()};
+$("nf").onsubmit=e=>{e.preventDefault();e.target.reset();tip(L==="en"?"Thanks for subscribing":"সাবস্ক্রাইব করার জন্য ধন্যবাদ")};
+$("form").onsubmit=e=>{e.preventDefault();done=new FormData(e.target).get("name").replace(/[<>&]/g,"");cart={};cartR();e.target.reset()};
+const bestR=()=>{$("bestGrid").innerHTML=P.filter(p=>p.best).map(card).join("")};
+bestR();cats();grid();cartR();
+$("lang").onclick=()=>{L=L==="bn"?"en":"bn";document.documentElement.lang=L;bestR();cats();grid();cartR();tr();$("lang").textContent=L==="en"?"বাং":"EN"};
+new MutationObserver(tr).observe(document.body,{childList:true,subtree:true});
+</script>
+</body>
+</html>
